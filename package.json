@@ -18,5 +18,8 @@
     "mongoose": "^6.8.2",
     "mongose": "^0.0.2-security",
     "pug": "^3.0.2"
+  },
+  "devDependencies": {
+    "font-awesome": "^4.7.0"
   }
 }

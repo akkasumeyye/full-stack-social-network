@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port = process.env.PORT || 3398;
+const port = process.env.PORT || 3391;
 const middleware = require('./middleware');
 const path = require('path');
 const bodyParser = require('body-parser');
@@ -17,6 +17,8 @@ app.set("views", "views");
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
+
+
 app.use(session({
     secret: 'keyboard cat',
     resave: true,
@@ -26,11 +28,11 @@ app.use(session({
 //Routes
 const loginRoute = require('./routes/loginRoutes.js');
 const registerRoute = require('./routes/registerRoutes.js');
-
+const logoutRoute = require('./routes/logout.js');
 
 app.use('/login', loginRoute);
 app.use('/register', registerRoute);
-
+app.use('/logout', logoutRoute);
 
 app.get('/', middleware.requireLogin, (req, res, next) => { 
 
