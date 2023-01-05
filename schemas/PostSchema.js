@@ -11,7 +11,7 @@ const PostSchema = new Schema({
         ref :'User'
     },
     pinned : Boolean
-}, {timeseries: true});
+}, {timestamps: true});
 
 var Post = mongoose.model('Post', PostSchema);
 module.exports = Post;

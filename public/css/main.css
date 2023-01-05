@@ -148,7 +148,9 @@ nav a:hover {
     font-weight: bold;
 }
 
-.username {
+.username ,
+.date
+{
     color: var(--greyText);
 }
 
