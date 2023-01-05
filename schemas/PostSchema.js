@@ -6,7 +6,7 @@ const PostSchema = new Schema({
         type : String,
         trim : true
     },
-    postedId : {
+    postedBy : {
         type : Schema.Types.ObjectId, 
         ref :'User'
     },

@@ -12,15 +12,15 @@ $("#postTextArea").keyup((event) => {
     return;
   }
   submitButton.prop("disabled", false);
-});
+})
 
-$("#submitPostButton").click((event) => {
+$("#submitPostButton").click(() => {
   var button = $(event.target);
   var textbox = $("#postTextArea");
 
   var data = {
-    content: textbox.val(),
-  };
+    content: textbox.val()
+  }
 
   $.post("/api/posts", data, postData => {
     var html = createPostHtml(postData);
@@ -28,28 +28,36 @@ $("#submitPostButton").click((event) => {
     textbox.val("");
     button.prop("disabled", true);
   });
-});
+})
 
 function createPostHtml(postData) {
- 
+
+  
   var postedBy = postData.postedBy;
+  
+  if(postedBy == undefined) {
+    return console.log("User not found");
+  }
 
-  return ` <div class="post">
-                
-      <div class="mainContentContainer">
-          <div class="userImageContainer">
-            <img src='${postedBy.profilePic}'>
-          </div>
-          <div class="postContentContainer">
-              <div class="header>
-              </div>
-              <div class="postBody>
-                  <span>${postData.content}</span>
-              </div>
-              <div class="postFooter>
-              </div>
-          </div>
-      </div>
+  var displayName = postedBy.firstName + " " + postedBy.lastName;
 
-  </div>`;
+  return `<div class="post">
+              <div class="mainContentContainer">
+                <div class="userImageContainer">
+                  <img src="${postedBy.profilePic}" alt=""/>
+                </div>
+                <div class="postContentContainer">
+                  <div class="header">
+                    <a href="/profile/${postedBy.username}">${displayName}</a>
+                    <span class="username">${postedBy.username}</span>
+                  </div>
+                  <div class="postBody">
+                    <span>${postData.content}</span>
+                  </div>
+                  <div class="postFooter">
+                  </div>
+                </div>
+              </div>
+          </div>`;
+
 }

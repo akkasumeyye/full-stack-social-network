@@ -6,30 +6,38 @@ const bodyParser = require("body-parser");
 const User = require("../../schemas/UserSchema");
 const Post = require("../../schemas/PostSchema");
 
-
 app.use(bodyParser.urlencoded({ extended: false }));
 
+router.get("/", (req, res) => {
+  Post.find()
+    .populate("postedBy")
+    .then((results) => res.status(200).send(results))
+    .catch((error) => {
+      console.log(error);
+      res.sendStatus(400);
+    });
+});
 
 router.post("/", (req, res, next) => {
-    if(!req.body.content){
-        console.log("Content param not sent with request");
-        return res.status(400);
-    }
+  if (!req.body.content) {
+    console.log("Content param not sent with request");
+    return res.status(400);
+  }
 
-    var postData = {
-        content: req.body.content,
-        postedBy : req.session.user
-    }
+  var postData = {
+    content: req.body.content,
+    postedBy: req.session.user
+  };
 
-    Post.create(postData)
-    .then(newPost => {   
-     res.status(201).send(newPost);
+  Post.create(postData)
+    .then(async (newPost) => {
+      newPost = await User.populate(newPost, { path: "postedBy" });
+      res.status(201).send(newPost);
     })
-    .catch(error => {
-        console.log(error);
-        res.sendStatus(400);
-    })
-
+    .catch((error) => {
+      console.log(error);
+      res.sendStatus(400);
+    });
 });
 
 module.exports = router;
