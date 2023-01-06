@@ -1,5 +1,5 @@
 # full-stack-social-network
-nodejs , express , mongodb , jwt , socket io, bootstrap , jquery, ajax ile yapmakta olduğum projem hala yapım aşamasındadır. eklemek istediğim özellik ; admin paneli eklenecek ve adminden onay almadan kulanıcılar post paylaşamayacak..
+nodejs , express , mongodb , jwt , socket io, bootstrap , jquery, ajax ile yapmakta olduğum projem hala yapım aşamasındadır. eklemek istediğim özellik ; admin paneli eklenecek ve adminden onay almadan kulanıcılar post paylaşamayacak.. socket io ilk defa bu pojede kullanarak öğreneceğim :)
 
 login ekrani , jwt token izinleri yapildi:
 
