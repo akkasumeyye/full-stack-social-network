@@ -1,7 +1,7 @@
 # full-stack-social-network
-nodejs , express , mongodb , jwt , socket io, bootstrap , jquery, ajax
+nodejs , express , mongodb , jwt , socket io, bootstrap , jquery, ajax ile yapmakta olduğum projem hala yapım aşamasındadır. eklemek istediğim özellik ; admin paneli eklenecek ve adminden onay almadan kulanıcılar post paylaşamayacak..
 
-login ekrani , jwt token izinleri yapldi:
+login ekrani , jwt token izinleri yapildi:
 
 ![image](https://user-images.githubusercontent.com/42119724/211100219-c31ff3d9-dd11-43b3-b995-45bb6ae6766a.png)
 
