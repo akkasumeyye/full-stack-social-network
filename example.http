@@ -1,0 +1,18 @@
+
+
+POST  http://localhost:3100/login HTTP/1.1
+Content-Type: application/x-www-form-urlencoded
+{
+    "username" : "akkas.smy",
+}
+
+
+###
+
+GET http://localhost:3100/
+Authorization: Bearer 
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjYzYjRjNGQ2MDAyMGRlOTdhMjlkNzM0MSIsInVzZXJuYW1lIjoiYWtrYXMuc215IiwiZW1haWwiOiJha2thc0BnbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRaU2R3a29VMVRkTGhMMEhzVVB4Z3FPa1R0T1lOSzRIaGtVZ1RnaXB2WmtTSmZxaGVLdFQ1eSIsImZpcnN0TmFtZSI6InN1bWV5eWVlIiwibGFzdE5hbWUiOiJha2thc3Nzc3MiLCJwcm9maWxlUGljIjoiaW1hZ2VzL3Byb2ZpbGVQaWMucG5nIiwiY3JlYXRlZEF0IjoiMjAyMy0wMS0wNFQwMDoxNDoxNC4yNzZaIiwidXBkYXRlZEF0IjoiMjAyMy0wMS0wNFQwMDoxNDoxNC4yNzZaIiwiX192IjowfSwiaWF0IjoxNjczMDMxMTgyfQ.YOlgqH6tyuzrYzosCzEFL_zgOgRuTtZDgClqx_UeDYc
+
+
+###
+GET http://localhost:3100/ HTTP/1.1

@@ -33,9 +33,9 @@ $("#submitPostButton").click(() => {
 function createPostHtml(postData) {
   var postedBy = postData.postedBy;
 
-  if (postedBy == undefined) {
-    return console.log("User not found");
-  }
+  // if (postedBy == undefined) {
+  //   return console.log("User not found");
+  // }
 
   var displayName = postedBy.firstName + " " + postedBy.lastName;
   var timestamp = timeDifference(new Date(), new Date(postData.createdAt));

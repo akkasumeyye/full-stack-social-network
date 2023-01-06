@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 mongoose.set("strictQuery", false);
 
+
 class Database {
   constructor() {
     this.connect();

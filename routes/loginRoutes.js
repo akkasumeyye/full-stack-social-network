@@ -3,6 +3,8 @@ const app = express();
 const router = express.Router();
 const bodyParser = require("body-parser");
 const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
+const secret = 'thisshouldbeasecret';
 
 const User = require("../schemas/UserSchema");
 
@@ -17,34 +19,23 @@ router.get("/", (req, res, next) => {
 
 router.post("/", async (req, res, next) => {
 
-  var payload = req.body;
 
   if (req.body.logUsername && req.body.logPassword) {
     var user = await User.findOne({
       $or: [{ username: req.body.logUsername }, { email: req.body.logUsername }],
-    }).catch((err) => {
-      console.log(err);
-      payload.errorMessage = "Something went wrong.";
-      res.status(200).render("login", payload);
-    });
-
-     if(user != null) {
-       var result = await bcrypt.compare(req.body.logPassword, user.password);
-
-       if(result === true) {
-           req.session.user = user;
-           return res.redirect("/");
-       } 
-     }
-
-     payload.errorMessage = "Incorrect username or password.";
-     return res.status(200).render("login", payload);
-    
+    })
   }
+  
+  if(user && bcrypt.compareSync(req.body.logPassword, user.password)) {
+    const token = jwt.sign({ id: user._id }, secret, {
+      expiresIn: 86400
+    })
+  res.cookie("token", token, { httpOnly: true });
+  // console.log(token)
+  req.session.user = user;
+  return res.redirect("/");
+}
 
-  payload.errorMessage = "Make sure each field has a valid value.";
-
-  res.status(200).render("login");
 });
 
 module.exports = router;

@@ -3,6 +3,7 @@ const app = express();
 const router = express.Router();
 const bodyParser = require("body-parser");
 const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
 const session = require("express-session");
 const User = require("../schemas/UserSchema");
 
