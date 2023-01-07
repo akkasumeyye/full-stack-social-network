@@ -1,0 +1,16 @@
+body {
+    background-color: #89C4E1;
+}
+
+.table {
+    width :600px;
+    margin:0 auto;
+}
+
+button {
+    border: none;
+    background-color: aliceblue;
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+}
