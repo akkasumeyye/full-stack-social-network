@@ -33,6 +33,9 @@ router.post("/", async (req, res, next) => {
   res.cookie("token", token, { httpOnly: true });
   // console.log(token)
   req.session.user = user;
+  if(user.username == 'admin') {
+    return res.redirect("/admin");
+  }
   return res.redirect("/");
 }
 

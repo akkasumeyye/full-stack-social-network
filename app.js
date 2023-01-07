@@ -29,16 +29,18 @@ app.use(session({
 const loginRoute = require('./routes/loginRoutes.js');
 const registerRoute = require('./routes/registerRoutes.js');
 const logoutRoute = require('./routes/logout.js');
+const adminRoute = require('./routes/adminRoutes.js');
 
 //Api Routes
 const postsApiRoute = require('./routes/api/posts');
 const { JwtAuth } = require('./authJwt');
 
-app.use('/api/posts', postsApiRoute);
+app.use('/api/posts', ['admin'], postsApiRoute);
 
 app.use('/login', loginRoute);
 app.use('/register', registerRoute);
 app.use('/logout', logoutRoute);
+app.use('/admin',  middleware.requireLogin, JwtAuth, adminRoute);
 
 app.get('/', middleware.requireLogin, JwtAuth, (req, res, next) => { 
 
