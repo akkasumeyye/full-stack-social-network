@@ -12,25 +12,16 @@ app.set("views", "views");
 app.use(bodyParser.urlencoded({ extended: false }));
 
 
-router.get("/", (req,res,next) => {
-  Post.find({}, function (err, posts) {
-    if (err) next(err);
-    res.locals.savedPosts = posts;
-    // console.log(posts);
-    next();
-  });
+router.get("/", async (req,res,next) => {
+  try {
+    let posts = await Post.find();
+    let users = await User.find();
 
-  User.find({}, function (err, users) {
-    if (err) next(err);
-    console.log(users);
-    res.locals.savedUsers = users;
-    next();
-  });
-
-    res.render("admin", {users: res.locals.savedUsers , posts: res.locals.savedPosts});
-});
-
-
+    res.render("admin",{posts,users});
+  } catch (error) {
+    
+  }
+})
    
 
 router.post("/", async (req, res) => {
