@@ -17,6 +17,8 @@ router.get("/", (req, res) => {
       console.log(error);
       res.sendStatus(400);
     });
+
+    
 });
 
 router.post("/", (req, res, next) => {

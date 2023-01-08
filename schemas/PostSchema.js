@@ -10,6 +10,8 @@ const PostSchema = new Schema({
         type : Schema.Types.ObjectId, 
         ref :'User'
     },
+    approved : [],
+    rejected : [],
     pinned : Boolean
 }, {timestamps: true});
 

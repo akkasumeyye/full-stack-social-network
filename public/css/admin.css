@@ -1,5 +1,5 @@
 body {
-    background-color: #89C4E1;
+    background-color: #EEEEEE;
 }
 
 .table {
@@ -7,10 +7,45 @@ body {
     margin:0 auto;
 }
 
-button {
-    border: none;
-    background-color: aliceblue;
+.li-content {
     display: flex;
-    flex-direction: column;
-    margin-top: 2rem;
+    flex-direction: row;
+    height: 50px;;
+    justify-content: space-around;
+    border-bottom: 1px dotted;
+    align-items: center;
+}
+
+li {
+    list-style: none;
+}
+
+.postcontainer {
+    width: 640px;
+}
+
+.li-content {
+    width:555px;
+}
+
+.icons {
+    width:75px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+.icons button {
+    background-color: #D4F6CC;
+    border-radius: 35%;
+    width:35px;
+}
+
+.icons .fas.fa-check {
+    color: green;
+}
+
+.icons .fas.fa-xmark {
+    color:red;
 }

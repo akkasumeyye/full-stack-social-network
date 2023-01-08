@@ -4,6 +4,7 @@ const router = express.Router();
 const bodyParser = require("body-parser");
 
 const User = require("../schemas/UserSchema");
+const Post = require("../schemas/PostSchema");
 
 app.set("view engine", "pug");
 app.set("views", "views");
@@ -11,17 +12,26 @@ app.set("views", "views");
 app.use(bodyParser.urlencoded({ extended: false }));
 
 
-router.get("/", (req, res) => {
-  User.find()
-    .then((results) =>  {
-    //   console.log(results);
-      res.render("admin", { users: results })
-    })
-    .catch((error) => {
-      console.log(error);
-      res.sendStatus(400);
-    });
+router.get("/", (req,res,next) => {
+  Post.find({}, function (err, posts) {
+    if (err) next(err);
+    res.locals.savedPosts = posts;
+    // console.log(posts);
+    next();
+  });
+
+  User.find({}, function (err, users) {
+    if (err) next(err);
+    console.log(users);
+    res.locals.savedUsers = users;
+    next();
+  });
+
+    res.render("admin", {users: res.locals.savedUsers , posts: res.locals.savedPosts});
 });
+
+
+   
 
 router.post("/", async (req, res) => {
   try {
@@ -31,6 +41,14 @@ router.post("/", async (req, res) => {
   } catch (error) {
     console.log(error);
   }
+
+    try {
+      const newPost = new Post(req.body);
+      await newPost.save();
+      console.log(req.body);
+    } catch (error) {
+      console.log(error);
+    }
 })
 
 module.exports = router;
