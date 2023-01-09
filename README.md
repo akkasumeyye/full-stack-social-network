@@ -13,10 +13,9 @@ uygulama arayüzü , gönderilen postlar zamanına göre sıralandı, kisilerin 
 
 ![image](https://user-images.githubusercontent.com/42119724/211100519-036b0173-e1d6-4a81-a801-a2f763bed596.png)
 
-admin pages ; kullanıcı datalarını görebilir, kullanıcıların gönderdiği postları onaylama reddetme işlemleri yapabilir
+admin pages ; kullanıcı datalarını görebilir, kullanıcıların gönderdiği postları onaylama reddetme işlemleri yapabilir, tüm datalar tablo halinde sunuldu
 
-![image](https://user-images.githubusercontent.com/42119724/211216342-13c7edcf-59d6-4e4b-bf77-4002bc1580ec.png)
 
-![image](https://user-images.githubusercontent.com/42119724/211216379-cf8169ce-adf5-4edd-b272-831ad3738ab5.png)
+![image](https://user-images.githubusercontent.com/42119724/211282029-526d7c7c-f438-4b7c-bb59-c6d3e9222340.png)
 
 
