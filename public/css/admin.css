@@ -1,11 +1,10 @@
 body {
-    background-color: #EDEDED;
+    background-color:#EDEDED;
 }
 a.btn {
     background-color: #905E96;
     height: 50px;
     width:180px;
-    margin-left: 150px;
 }
 
 a.btn:hover {
@@ -19,7 +18,6 @@ a.btn:hover {
 h2 {
     font-size: 2.5rem;
     line-height: 1;
-    margin-top: 5rem;
 }
 
 .underline {
@@ -37,8 +35,12 @@ h2 {
 }
   
 .table {
-    width :600px;
+    width :100%;
     margin:0 auto;
+}
+
+.poscontainer {
+    width: 100%;
 }
 
 .li-content {
@@ -48,16 +50,13 @@ h2 {
     justify-content: space-around;
     border-bottom: 1px dotted;
     align-items: center;
+    width: 100%;
 }
-
+.ui-corner-left{
+    width:50%
+}
 li {
     list-style: none;
-}
-
-
-
-.li-content {
-    width:555px;
 }
 
 .icons {
@@ -81,3 +80,10 @@ li {
 .icons .fas.fa-xmark {
     color:red;
 }
+#tabs {display: flex;}
+.ui-tabs-nav{margin-top: 10rem;}
+.ui-tabs-vertical .ui-tabs-nav { padding: .2em .1em .2em .2em; float: left; width: 12em; }
+.ui-tabs-vertical .ui-tabs-nav li { clear: left; width: 100%; border-bottom-width: 1px !important; border-right-width: 0 !important; margin: 0 -1px .2em 0; }
+.ui-tabs-vertical .ui-tabs-nav li a { display:block; color: #EDEDED;}
+.ui-tabs-vertical .ui-tabs-nav li.ui-tabs-active { padding-bottom: 0; padding-right: .1em; border-right-width: 1px; }
+.ui-tabs-vertical .ui-tabs-panel { margin-left: 2em; float: right; width: 90%;}

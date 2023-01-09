@@ -1,12 +1,5 @@
-$(function () {
-  $('a[data-bs-toggle="collapse"]').on("click", function () {
-    var objectID = $(this).attr("href");
-    $(objectID).collapse('toggle');
-    // if ($(objectID).hasClass("in")) {
-    //   $(objectID).collapse("hide");
-    // } else {
-    //   $(objectID).collapse("show");
-    // }
-  });
-});
 
+$(document).ready(function() {
+  $( "#tabs" ).tabs().addClass( "ui-tabs-vertical ui-helper-clearfix" );
+  $( "#tabs li" ).removeClass( "ui-corner-top" ).addClass( "ui-corner-left" );
+} );
